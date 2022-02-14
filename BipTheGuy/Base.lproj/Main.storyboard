@@ -1,24 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BipTheGuy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tM4-Je-wtE">
+                                <rect key="frame" x="157" y="820" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="BoB-Ej-9jT"/>
+                                    <constraint firstAttribute="width" constant="100" id="QUi-No-joh"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="camera.on.rectangle" catalog="system"/>
+                                <connections>
+                                    <action selector="photoOrCameraPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wg4-cT-IO4"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clown" translatesAutoresizingMaskIntoConstraints="NO" id="Q9R-EW-yRk">
+                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="L1a-r2-z3d" appends="YES" id="BIp-i1-po0"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tM4-Je-wtE" firstAttribute="top" secondItem="Q9R-EW-yRk" secondAttribute="bottom" constant="12" id="6Ob-p8-lbq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Q9R-EW-yRk" secondAttribute="trailing" id="Jd2-oi-LrG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tM4-Je-wtE" secondAttribute="bottom" constant="12" id="O1w-tw-3G4"/>
+                            <constraint firstItem="tM4-Je-wtE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="l0I-ke-Xlu"/>
+                            <constraint firstItem="Q9R-EW-yRk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="n38-5g-aAp"/>
+                            <constraint firstItem="Q9R-EW-yRk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vQi-37-pgr"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="Q9R-EW-yRk" id="wtd-LQ-oMd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="L1a-r2-z3d">
+                    <connections>
+                        <action selector="imageTapped:" destination="BYZ-38-t0r" id="cdI-xP-nJN"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="20" y="86"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera.on.rectangle" catalog="system" width="128" height="96"/>
+        <image name="clown" width="1786" height="1779"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
